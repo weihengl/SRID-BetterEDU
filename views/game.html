@@ -17,8 +17,10 @@
 <input id = "guess">
 <button id = "bt2">guess</button>
 <button id = "clean" style = "display:none">clean</button>
+<button id = "giveUp">Give up</button>
 <h3 id = "stat"></h3>
 <h4 id = "result"></h4>
+<div id = "countDown"></div>
 </body>
 </html>
 
@@ -29,9 +31,10 @@
   let context = theCanvas.getContext('2d')
   let isAllowDrawLine = false;
   var username = localStorage.getItem("username");
-
+  var countDown = 60;
   var items = ['apple','cat','car','house','sun'];
   var hasDrawn = [false,false,false,false,false];
+  var answer;
   socket = io.connect('http://localhost:8080');
   var chosen;
   console.log(username);
@@ -50,6 +53,10 @@
   clean.onclick = function(){
     theCanvas.height = theCanvas.height;
     socket.emit("clean","");
+  }
+  var giveUp = document.getElementById("giveUp");
+  giveUp.onclick = function(){
+    socket.emit("giveUp","");
   }
   function guess(g){
     socket.emit("guess",g);
@@ -72,6 +79,7 @@
     }while (hasDrawn[chosen]);
     hasDrawn[chosen] = true;
     document.getElementById("stat").innerText = "Please draw: " + items[chosen];
+    answer = items[chosen];
     var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange=function() {
       if (xmlHttp.readyState==4 && xmlHttp.status==201) {
@@ -128,7 +136,8 @@
     context.moveTo(x, y);
   })
   socket.on("success",(data)=>{
-    document.getElementById("result").innerText = "Good job!";
+    document.getElementById("result").innerText = "Good job!\nNew games starts in 5 seconds...";
+    setTimeout("init()",5000);
   });
   socket.on("fail",(data)=>{
     document.getElementById("result").innerText = "Sorry, please try again";
@@ -136,6 +145,31 @@
   socket.on("clean",(data)=>{
     theCanvas.height = theCanvas.height;
   });
+  socket.on("giveUp",(data)=>{
+    document.getElementById("result").innerText = "The player gives up \nNew game will start in 5 seconds...";
+    setTimeout("init()",5000);
+  });
 
-
+  function init(){
+    countDown = 60;
+    //setInterval("count()",1000);
+    if(username == "kid") {
+      select();
+    }
+    theCanvas.height = theCanvas.height;
+    document.getElementById("result").innerText = "";
+  }
+/*
+  function count(){
+    countDown --;
+    var c = document.getElementById("countDown");
+    c.innerText = "Time left: " + countDown + " seconds";
+    if(countDown == 0){
+      var ans ="";
+      if(username!='kid') ans = "The answer is: "+answer+"\n";
+      document.getElementById("result").innerText = "Time out!\n"+ans+"New game will start in 5 seconds...";
+      setTimeout("init()",5000);
+    }
+  }
+*/
 </script>

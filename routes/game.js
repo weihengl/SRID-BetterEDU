@@ -25,6 +25,9 @@ io.sockets.on('connection', (socket) => {
       io.sockets.emit("success","");
     }
   });
+  socket.on("giveUp",(data)=>{
+    io.sockets.emit("giveUp","");
+  });
 })
 
 var ans;
