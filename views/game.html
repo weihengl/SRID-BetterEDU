@@ -12,56 +12,96 @@
   <script src="http://localhost:8080/socket.io/socket.io.js"></script>
 </head>
 <body>
-<input id = "username">
-<button id = "bt">set username</button>
-<canvas id="canvas" width="500" height="360" ></canvas>
 
+<canvas id="canvas" width="500" height="360" ></canvas>
+<input id = "guess">
+<button id = "bt2">guess</button>
+<button id = "clean" style = "display:none">clean</button>
+<h3 id = "stat"></h3>
+<h4 id = "result"></h4>
 </body>
 </html>
 
 <script type = "text/javascript">
-  var username;
-  var bt = document.getElementById("bt");
-  bt.onclick = function(){
-    username = document.getElementById("username").value;
-  }
 
-  function a(){
-    var value = input.value;
+  var bt2 = document.getElementById("bt2");
+  let theCanvas = document.querySelector('#canvas');
+  let context = theCanvas.getContext('2d')
+  let isAllowDrawLine = false;
+  var username = localStorage.getItem("username");
+
+  var items = ['apple','cat','car','house','sun'];
+  var hasDrawn = [false,false,false,false,false];
+  socket = io.connect('http://localhost:8080');
+  var chosen;
+  console.log(username);
+  if(username == "kid"){
+    initCanvas();
+    select();
+    document.getElementById("bt2").style.display = "none";
+    document.getElementById("guess").style.display = "none";
+    document.getElementById("clean").style.display = "inline";
+  }
+  bt2.onclick = function(){
+    var g = document.getElementById("guess").value;
+    guess(g);
+  }
+  var clean = document.getElementById("clean");
+  clean.onclick = function(){
+    theCanvas.height = theCanvas.height;
+    socket.emit("clean","");
+  }
+  function guess(g){
+    socket.emit("guess",g);
+  }
+  function select(){
+    var flag = false;
+    for(var i=0;i<5;i++){
+      if(!hasDrawn[i]){
+        flag = true;
+        break;
+      }
+    }
+    if(!flag){
+      for(var i=0;i<5;i++){
+        hasDrawn[i] = false;
+      }
+    }
+    do{
+      chosen = Math.floor(Math.random()*5)
+    }while (hasDrawn[chosen]);
+    hasDrawn[chosen] = true;
+    document.getElementById("stat").innerText = "Please draw: " + items[chosen];
     var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange=function()
-    {
-      if (xmlHttp.readyState==4 && xmlHttp.status==200)
-      {
-        test.innerHTML = xmlHttp.responseText;
+    xmlHttp.onreadystatechange=function() {
+      if (xmlHttp.readyState==4 && xmlHttp.status==201) {
+        console.log("Success set answer");
       }
     };
-    xmlHttp.open('POST', 'http://127.0.0.1:3000/game', true);
-    xmlHttp.send(value);
+    xmlHttp.open('POST', 'http://127.0.0.1:3000/game/answer', true);
+    xmlHttp.send(items[chosen]);
   }
-    let theCanvas = document.querySelector('#canvas');
-      let context = theCanvas.getContext('2d')
-      let isAllowDrawLine = false;
-      theCanvas.onmousedown = function(e) {
-        isAllowDrawLine = true;
-        let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
-        let { x, y } = ele;
-        context.moveTo(x, y);
-        socket.emit('down',{x:x,y:y});
-        theCanvas.onmousemove = (e) => {
-          if (isAllowDrawLine) {
-            let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
-            let { x, y } = ele;
-            context.lineTo(x, y);
-            context.stroke();
-            socket.emit('move',{x:x,y:y});
-          }
+  function initCanvas() {
+    theCanvas.onmousedown = function (e) {
+      isAllowDrawLine = true;
+      let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
+      let {x, y} = ele;
+      context.moveTo(x, y);
+      socket.emit('down', {x: x, y: y});
+      theCanvas.onmousemove = (e) => {
+        if (isAllowDrawLine) {
+          let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
+          let {x, y} = ele;
+          context.lineTo(x, y);
+          context.stroke();
+          socket.emit('move', {x: x, y: y});
         }
       }
-      theCanvas.onmouseup = function() {
-        isAllowDrawLine = false;
-      }
-
+    }
+    theCanvas.onmouseup = function () {
+      isAllowDrawLine = false;
+    }
+  }
 
   const windowToCanvas = (canvas, x, y) => {
     let rect = canvas.getBoundingClientRect()
@@ -71,7 +111,7 @@
     }
   }
 
-  socket = io.connect('http://localhost:8080');
+
   socket.on('data',(data)=>{
     console.log(data);
   });
@@ -87,7 +127,15 @@
     var y = data.y;
     context.moveTo(x, y);
   })
-
+  socket.on("success",(data)=>{
+    document.getElementById("result").innerText = "Good job!";
+  });
+  socket.on("fail",(data)=>{
+    document.getElementById("result").innerText = "Sorry, please try again";
+  });
+  socket.on("clean",(data)=>{
+    theCanvas.height = theCanvas.height;
+  });
 
 
 </script>

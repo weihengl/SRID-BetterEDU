@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
-var WebSocket = require('ws');
-//const wss = new WebSocket.Server({ port: 8080 })
-io = require('socket.io').listen(8080)
+io = require('socket.io').listen(8080);
+
 io.sockets.on('connection', (socket) => {
 
   socket.on('move', message => {
@@ -15,8 +14,20 @@ io.sockets.on('connection', (socket) => {
     console.log(message);
     socket.broadcast.emit("down",message);
   });
-
+  socket.on("clean",msg=>{
+    socket.broadcast.emit("clean","");
+  });
+  socket.on("guess",guess=>{
+    if(guess != ans){
+      socket.emit("fail","");
+    }
+    else{
+      io.sockets.emit("success","");
+    }
+  });
 })
+
+var ans;
 
 router.get('/',(req,res,next)=>{
   res.render('game');
@@ -37,5 +48,13 @@ router.post('/',(req,res,next)=>{
     res.end();
   })
 });
+
+router.post('/answer',(req,res,next)=>{
+  req.on('data',function(data){
+    ans = data+"";
+    return res.status(201).send("an");
+  });
+});
+
 
 module.exports = router;
