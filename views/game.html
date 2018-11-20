@@ -2,9 +2,92 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>hello</title>
+  <style type="text/css">
+    #canvas{
+      margin: .25rem 0 0 1.5rem;
+      border: 1px solid black;
+      display: block;
+    }
+  </style>
+  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
 </head>
 <body>
-world
+<input id = "username">
+<button id = "bt">set username</button>
+<canvas id="canvas" width="500" height="360" ></canvas>
+
 </body>
 </html>
+
+<script type = "text/javascript">
+  var username;
+  var bt = document.getElementById("bt");
+  bt.onclick = function(){
+    username = document.getElementById("username").value;
+  }
+
+  function a(){
+    var value = input.value;
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange=function()
+    {
+      if (xmlHttp.readyState==4 && xmlHttp.status==200)
+      {
+        test.innerHTML = xmlHttp.responseText;
+      }
+    };
+    xmlHttp.open('POST', 'http://127.0.0.1:3000/game', true);
+    xmlHttp.send(value);
+  }
+    let theCanvas = document.querySelector('#canvas');
+      let context = theCanvas.getContext('2d')
+      let isAllowDrawLine = false;
+      theCanvas.onmousedown = function(e) {
+        isAllowDrawLine = true;
+        let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
+        let { x, y } = ele;
+        context.moveTo(x, y);
+        socket.emit('down',{x:x,y:y});
+        theCanvas.onmousemove = (e) => {
+          if (isAllowDrawLine) {
+            let ele = windowToCanvas(theCanvas, e.clientX, e.clientY)
+            let { x, y } = ele;
+            context.lineTo(x, y);
+            context.stroke();
+            socket.emit('move',{x:x,y:y});
+          }
+        }
+      }
+      theCanvas.onmouseup = function() {
+        isAllowDrawLine = false;
+      }
+
+
+  const windowToCanvas = (canvas, x, y) => {
+    let rect = canvas.getBoundingClientRect()
+    return {
+      x: x - rect.left * (canvas.width/rect.width),
+      y: y - rect.top * (canvas.height/rect.height)
+    }
+  }
+
+  socket = io.connect('http://localhost:8080');
+  socket.on('data',(data)=>{
+    console.log(data);
+  });
+  socket.on('move',(data)=>{
+    var x = data.x;
+    var y = data.y;
+    context.lineTo(x, y);
+    context.moveTo(x, y);
+    context.stroke();
+  });
+  socket.on('down',(data)=>{
+    var x = data.x;
+    var y = data.y;
+    context.moveTo(x, y);
+  })
+
+
+
+</script>
