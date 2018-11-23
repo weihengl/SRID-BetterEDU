@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+		<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+		<link href="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="https://netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="/stylesheets/gallery.css">
+    </head>
+    <body>
+
+        <div class="gallery">
+            <div class="dropdown">
+            <button type="button" class="btn dropdown-toggle" id="date" data-toggle="dropdown">
+                search by date
+                <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="date" >
+                <li role="presentation">
+                    <button id="btn1">latest one week</button>
+                </li>
+                <li role="presentation">
+                    <button id="btn2">latest one month</button>
+                </li>
+                <li role="presentation">
+                    <button id="btn3">latest three months </button> 
+                </li>
+            </ul>
+            </div>
+            <div id="today">
+                <h3>
+                    Today
+                </h3>
+                <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+                <div class="card-group">
+                    <div class="card" style="width: 400px" >
+                        <img class="card-img-top" src="pictures/1.png" alt="Card image" style="width: 100%">
+                        <div class="card-block">
+                            <h4 class="card-title">Hamberger and Beverage</h4>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 400px">
+                        <img class="card-img-top" src="pictures/2.png" alt="Card image" style="width: 100%">
+                        <div class="card-block">
+                            <h4 class="card-title">Sun and Moon</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="Nov">
+                <h3>
+                    Nov 3rd
+                </h3>
+                <hr style=" height:2px;border:none;border-top:2px dotted #185598;" />
+                <div class="card-group">
+                    <div class="card" style="width: 400px">
+                        <img class="card-img-top" src="pictures/3.png" alt="Card image" style="width: 100%">
+                        <div class="card-block">
+                            <h4 class="card-title">Cattle</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            $("#btn1").click(()=>{
+                $("#Nov").hide();
+                $("#date").text("latest one week");
+            })
+            $("#btn2").click(()=>{
+                $("#Nov").show();
+                $("#date").text("latest one month");
+            })
+            $("#btn3").click(()=>{
+                $("#Nov").show();
+                $("#date").text("latest three months");
+            })
+        </script>
+    </body>
+
+</html>
