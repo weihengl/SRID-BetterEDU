@@ -1,0 +1,10 @@
+div.gallery {
+    position: relative;
+    top:100px;
+    left:200px;
+}
+
+hr {
+    height: 2px;
+    color: black;
+}
