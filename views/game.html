@@ -7,13 +7,17 @@
       margin: .25rem 0 0 1.5rem;
       border: 1px solid black;
       display: block;
+      text-align:center
+    }
+    #content{
+      text-align:center
     }
   </style>
   <script src="http://localhost:8080/socket.io/socket.io.js"></script>
 </head>
 <body>
-
-<canvas id="canvas" width="500" height="360" ></canvas>
+<div id = "content">
+<canvas id="canvas" width="600" height="500" ></canvas>
 <input id = "guess">
 <button id = "bt2">guess</button>
 <button id = "clean" style = "display:none">clean</button>
@@ -21,6 +25,7 @@
 <h3 id = "stat"></h3>
 <h4 id = "result"></h4>
 <div id = "countDown"></div>
+</div>
 </body>
 </html>
 

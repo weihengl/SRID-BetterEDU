@@ -7,6 +7,7 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var galleryRouter = require('./routes/gallery');
+var gameSelectRouter = require('./routes/gameSelect');
 var WebSocket = require('ws');
 
 var app = express();
@@ -25,6 +26,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/gallery',galleryRouter);
+app.use('/gameSelect',gameSelectRouter)
 
 
 // catch 404 and forward to error handler
