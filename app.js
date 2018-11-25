@@ -8,6 +8,7 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var galleryRouter = require('./routes/gallery');
 var gameSelectRouter = require('./routes/gameSelect');
+var videoConferenceRouter = require('./routes/videoConference');
 var WebSocket = require('ws');
 
 var app = express();
@@ -16,17 +17,17 @@ var app = express();
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
-app.use(logger('dev'));
+// app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/gallery',galleryRouter);
 app.use('/gameSelect',gameSelectRouter)
+app.use('/video',videoConferenceRouter)
 
 
 // catch 404 and forward to error handler
