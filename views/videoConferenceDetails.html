@@ -11,13 +11,14 @@
     <link href="/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
 
     <!-- Loading Flat UI -->
+    <link rel="stylesheet" type="text/css" href="/stylesheets/semantic.css">
     <link href="/dist/css/flat-ui.css" rel="stylesheet">
     <link href="/docs/assets/css/demo.css" rel="stylesheet">
-    <!--<link href="docs/assets/css/chat.css", rel="stylesheet">-->
+    <link href="docs/assets/css/chat.css", rel="stylesheet">
     <link rel="../static/shortcut icon" href="/dist/favicon.ico">
 </head>
 
-<body>
+<body style="background-image:url('/images/bg.jpg')">
     <!--<p></p>-->
     <div class="row demo-row">
         <div class="col">
@@ -96,7 +97,7 @@
             </div><!-- /.todo -->
         </div><!-- /.col-4 -->
 
-        <div class="col-8">
+        <div class="col-7">
             <video
                     id="my-player"
                     class="video-js"
@@ -114,11 +115,98 @@
                     </a>
                 </p>
             </video>
+
             <table><tr><td style="width:100%;height:26px;font-size:14px;border:0"></td></tr></table>
             <span style="font-size: 30px; ">Classroom 109 - Parents' Meeting</span>
             &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;<span style="font-size: 26px; ">14 : 32</span>
 
         </div> <!-- /video -->
+
+        <div class="col-3">
+            <span style="font-size: 24px; ">16 Joined Users</span>
+            <div class="ui relaxed list">
+                <div class="item">
+                    <img class="ui avatar image" src="/images/tom.jpg">
+                    <div class="content">
+                        <a class="header">Daniel Louise (John's Dad)</a>
+                        <div class="description">Joined at <a><b>14:24</b></a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="ui avatar image" src="/images/nan.jpg">
+                    <div class="content">
+                        <a class="header">Stevie Feliciano (Micky's Mom)</a>
+                        <div class="description">Joined at <a><b>14:22</b></a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="ui avatar image" src="/images/nan.jpg">
+                    <div class="content">
+                        <a class="header">Elliot Fu (Teacher)</a>
+                        <div class="description">Joined at <a><b>14:17</b></a> </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img class="ui avatar image" src="/images/tom.jpg">
+                    <div class="content">
+                        <a class="header">Hakan Browns (Sari's Dad)</a>
+                        <div class="description">Joined at <a><b>14:17</b></a> </div>
+                    </div>
+                </div>
+            </div>
+
+            <table><tr><td style="width:100%;height:10px;font-size:14px;border:0"></td></tr></table>
+            <span style="font-size: 24px; ">Online Chatting</span>
+            <div class="ui comments">
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="/images/tom.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Daniel Louise</a>
+                        <div class="metadata">
+                            <div class="date">2 minutes ago</div>
+                        </div>
+                        <div class="text">
+                            Hello, Ms. Elliot.
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="/images/nan.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Daniel Louise</a>
+                        <div class="metadata">
+                            <div class="date">3 minutes ago</div>
+                        </div>
+                        <div class="text">
+                            Pretty good!
+                        </div>
+                    </div>
+                </div>
+                <div class="comment">
+                    <a class="avatar">
+                        <img src="/images/nan.jpg">
+                    </a>
+                    <div class="content">
+                        <a class="author">Daniel Louise</a>
+                        <div class="metadata">
+                            <div class="date">3 minutes ago</div>
+                        </div>
+                        <div class="text">
+                            How's the conference going?
+                        </div>
+                    </div>
+                </div>
+                <table><tr><td style="width:100%;height:10px;font-size:14px;border:0"></td></tr></table>
+                <div class="col-9">
+                    <input type="text" value="" placeholder="Type Here" class="form-control" />
+                    <table><tr><td style="width:100%;height:8px;font-size:14px;border:0"></td></tr></table>
+                    <a href="#" class="btn btn-block btn-lg btn-info">Send</a>
+                </div>
+            </div>
     </div>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
