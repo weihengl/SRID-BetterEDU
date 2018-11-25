@@ -9,6 +9,7 @@ var usersRouter = require('./routes/users');
 var galleryRouter = require('./routes/gallery');
 var gameSelectRouter = require('./routes/gameSelect');
 var videoConferenceRouter = require('./routes/videoConference');
+var aiRouter = require('./routes/ai');
 var WebSocket = require('ws');
 
 var app = express();
@@ -26,8 +27,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/gallery',galleryRouter);
-app.use('/gameSelect',gameSelectRouter)
-app.use('/video',videoConferenceRouter)
+app.use('/gameSelect',gameSelectRouter);
+app.use('/video',videoConferenceRouter);
+app.use('/ai',aiRouter);
 
 
 // catch 404 and forward to error handler

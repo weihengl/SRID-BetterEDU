@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>EDU-X-AI</title>
+        <meta name="description" content="AI page for EDU-X"/>
+
+        <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
+
+        <!-- Loading Bootstrap -->
+        <link href="/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+
+        <!-- Loading Flat UI -->
+        <link href="/dist/css/flat-ui.css" rel="stylesheet">
+        <link href="/docs/assets/css/demo.css" rel="stylesheet">
+        <link href="/docs/assets/css/chat.css" , rel="stylesheet">
+        <link rel="shortcut icon" href="dist/favicon.ico">
+
+        <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
+        <!--[if lt IE 9]>
+        <script src="dist/js/vendor/html5shiv.js"></script>
+        <script src="dist/js/vendor/respond.min.js"></script>
+
+        <![endif]-->
+    </head>
+
+    <body style="background-image:url('/images/bg.jpg')">
+    <div class="row demo-samples">
+        <div class="col">
+
+                <nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
+                    <a class="navbar-brand" href="#">EDU-X</a>
+                    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+                    <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                        <ul class="nav navbar-nav ml-auto">
+                            <li><a href="#fakelink">Sai Liu<span class="navbar-unread">1</span></a></li>
+                            <li><a href="#fakelink">Log Out</a></li>
+                        </ul>
+                    </div><!-- /.navbar-collapse -->
+                </nav><!-- /navbar -->
+        </div>
+    </div>
+
+    <div class="row demo-samples">
+    <div class="col-2">
+        <div class="todo">
+            <ul>
+                <li>
+                    <div class="todo-icon fui-calendar"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/"><strong>Calendar</strong></a>
+                        </h2>
+                    </div>
+                </li>
+                <li class="todo-done">
+                    <div class="todo-icon fui-user"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/video"><strong>Video Conference</strong></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-eye"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/gameSelect"><strong>Mini Game</strong></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-chat"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/ai"><strong style="color: white">AI Assistant</strong></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-gear"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <strong style="color: #1abc9c" >Notification Settings</strong>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-image"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/gallery"><strong>Art Gallery</strong></a>
+                        </h2>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- /.todo -->
+    </div>
+
+
+    <div class="jumbotron m-0 p-0 bg-transparent col-10">
+        <div class="row m-0 p-0 position-relative">
+            <div class="col-12 p-0 m-0 position-absolute" style="right: 0px;">
+                <div class="card border-0 rounded" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10), 0 6px 10px 0 rgba(0, 0, 0, 0.01); overflow: hidden; height: 100vh;">
+
+                    <div class="card-header p-1 bg-light border border-top-0 border-left-0 border-right-0" style="color: rgba(96, 125, 139,1.0);">
+
+                        <img class="rounded float-left" style="width: 50px; height: 50px;" src="https://i.pinimg.com/736x/5c/24/69/5c24695df36eee73abfbdd8274085ecd--cute-anime-guys-anime-boys.jpg" />
+
+                        <h6 class="float-left" style="margin: 0px; margin-left: 10px;"> AI Teaching Assistant <i class="fa fa-check text-primary" title="Onaylanmış Hesap!" aria-hidden="true"></i> </br><small> Kindergarten </small></h6>
+
+
+
+                    </div>
+
+
+                    <div class="card bg-sohbet border-0 m-0 p-0" style="height: 100vh;">
+                        <div id="sohbet" class="card border-0 m-0 p-0 position-relative bg-transparent" style="overflow-y: auto; height: 100vh;">
+
+
+
+                            <div class="balon2 p-2 m-0 position-relative" >
+
+                                <a class="float-left sohbet2"> Hey, I am AI teaching assistant! Nice to meet you! </a>
+
+                            </div>
+
+
+
+
+
+                        </div>
+                    </div>
+
+                    <div class="w-100 card-footer p-0 bg-light border border-bottom-0 border-left-0 border-right-0">
+
+
+
+                            <div class="row m-0 p-0">
+                                <div class="col-7 m-0 p-1">
+                                    <br/>
+                                    <input id="text" class="mw-100 border rounded form-control" type="text" name="text" title="Type a message..." placeholder="Type a message..." required>
+
+                                </div>
+                                <div class="col-3 m-0 p-1">
+                                    <br/>
+                                    <button class="btn btn-block btn-lg btn-primary" id="send_Btn" style="padding-right: 16px;">Send</button>
+
+                                </div>
+
+                                <div class = "col-2 m-0 p-1">&emsp;
+                                    <div class="form-group">
+                                        <label for="myupload" class="btn btn-block btn-lg btn-primary" style="font-size: 17px;">
+                                            <font color = "white">Upload File: Browse</font>
+                                        </label>
+                                        <input class="btn btn-block btn-lg btn-primary" type="file" style="display: none" id="myupload" multiple>
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    </div>
+
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="/javascripts/ai.js"></script>
+    <script src="/dist/scripts/flat-ui.js"></script>
+    <script src="/docs/assets/js/application.js"></script>
+
+
+
+</body>
+</html>
