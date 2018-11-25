@@ -122,10 +122,9 @@ ol.linenums {
   padding-top: 5px;
 }
 .demo-row {
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 15px;
+    /*margin-right: 15px;*/
     margin-bottom: 20px;
-    width: 97%;
     text-align: center;
 }
 .demo-row .demo-heading-note,
@@ -239,7 +238,8 @@ ol.linenums {
   vertical-align: middle;
 }
 .demo-samples {
-  margin-bottom: 46px;
+    margin-left: 20px;
+    margin-bottom: 46px;
 }
 .demo-download-section {
   float: none;
