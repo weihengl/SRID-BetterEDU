@@ -122,6 +122,7 @@
     <div id = "countDown"></div>
   </div>
 </div>
+<bgsound id="snd" loop="0" src=""/>
 </body>
 </html>
 
@@ -238,6 +239,7 @@
   })
   socket.on("success",(data)=>{
     document.getElementById("result").innerText = "Good job!\nNew games starts in 5 seconds...";
+    new Audio("audios/hooray.mp3").play();
     setTimeout("init()",5000);
   });
   socket.on("fail",(data)=>{
@@ -251,7 +253,14 @@
     setTimeout("init()",5000);
   });
 
-  function init(){
+  function playSound(src) {
+    var _s = document.getElementById('snd');
+    if (src != '' && typeof src != undefined) {
+      _s.src = src;
+    }
+  }
+
+    function init(){
     countDown = 60;
     //setInterval("count()",1000);
     if(username == "kid") {
