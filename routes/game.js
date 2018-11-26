@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-io = require('socket.io').listen(8080);
+var app = express();
+    var io = require('socket.io').listen(app);
 
 io.sockets.on('connection', (socket) => {
 
