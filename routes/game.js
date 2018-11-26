@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var app = require('express')();
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-
-server.listen(8080);
+// var app = require('express')();
+// var server = require('http').Server(app);
+// var io = require('socket.io')(server);
+//
+// server.listen(8080);
+var io = global.io;
 
 io.sockets.on('connection', (socket) => {
 
