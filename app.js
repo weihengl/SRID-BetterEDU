@@ -83,11 +83,11 @@ io.sockets.on('connection', (socket) => {
 
 var ans;
 
-router.get('/game/',(req,res,next)=>{
+app.get('/game/',(req,res,next)=>{
   res.render('game');
 });
 
-router.post('/game/',(req,res,next)=>{
+app.post('/game/',(req,res,next)=>{
   var body = "";
   req.on('data',function(data){
     body += data;
@@ -103,7 +103,7 @@ router.post('/game/',(req,res,next)=>{
   })
 });
 
-router.post('/game/answer',(req,res,next)=>{
+app.post('/game/answer',(req,res,next)=>{
   req.on('data',function(data){
     ans = data+"";
     return res.status(201).send("an");
