@@ -1,7 +1,11 @@
 var express = require('express');
 var router = express.Router();
 var app = express();
-    var io = require('socket.io').listen(app);
+var server = require('http').Server(app);
+// 引入 socket.io
+var io = require('socket.io')(server);
+// 监听 80 端口
+server.listen(8080);
 
 io.sockets.on('connection', (socket) => {
 
