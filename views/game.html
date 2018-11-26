@@ -24,7 +24,7 @@
       text-align:center
     }
   </style>
-  <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+  <script src="https://better-edu.herokuapp.com:8080/socket.io/socket.io.js"></script>
 </head>
 <body>
 <div class="row demo-row">
@@ -141,7 +141,7 @@
   var items = ['apple','cat','car','house','sun'];
   var hasDrawn = [false,false,false,false,false];
   var answer;
-  socket = io.connect('http://localhost:8080');
+  socket = io.connect('https://better-edu.herokuapp.com:8080');
   var chosen;
   console.log(username);
   if(username == "kid"){
@@ -192,7 +192,7 @@
         console.log("Success set answer");
       }
     };
-    xmlHttp.open('POST', 'http://127.0.0.1:3000/game/answer', true);
+    xmlHttp.open('POST', 'https://better-edu.herokuapp.com/game/answer', true);
     xmlHttp.send(items[chosen]);
   }
   function initCanvas() {
