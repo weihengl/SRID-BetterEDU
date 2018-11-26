@@ -15,9 +15,9 @@
   <fieldset>
     <legend align="center">Log In</legend></br>
     <label>Username:</label>
-    <input type="text"  id="username">  'kid' or 'parent'</br></br>
+    <input type="text" id="username">  'kid' or 'parent'</br></br>
     <label>Password: </label>
-    <input type="Password"  id="pwd1">
+    <input type="Password" id="pwd1">
     <button name="" onclick="login()" style = "width:100px;align:center;background-color:#54C8FF;height:40px; border:none;border-radius: 4px;margin-left:5px">Log in</button>
   </fieldset>
 
@@ -27,13 +27,13 @@
 <script type="text/javascript">
 
   function login(){
-    var username = document.getElementById("username");
+    var username = document.getElementById("username").value;
     alert(username);
     if(username!="kid"&&username!='parent'){
       alert("Please set username to be 'kid' or 'parent");
       return;
     }
     localStorage.setItem("username",username);
-    //window.location.href="https://better-edu.herokuapp.com/";
+    window.location.href="https://better-edu.herokuapp.com/";
   }
 </script>
