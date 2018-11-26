@@ -50,4 +50,64 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+var server = require('http').Server(app).listen(3000);
+var io = require('socket.io').listen(server);
+io.sockets.on('connection', (socket) => {
+
+  socket.on('move', message => {
+    console.log(message.x);
+    console.log(message);
+    socket.broadcast.emit("move",message);
+  });
+  socket.on('down', message => {
+    console.log(message.x);
+    console.log(message);
+    socket.broadcast.emit("down",message);
+  });
+  socket.on("clean",msg=>{
+    socket.broadcast.emit("clean","");
+  });
+  socket.on("guess",guess=>{
+    if(guess != ans){
+      socket.emit("fail","");
+    }
+    else{
+      io.sockets.emit("success","");
+    }
+  });
+  socket.on("giveUp",(data)=>{
+    io.sockets.emit("giveUp","");
+  });
+})
+
+var ans;
+
+router.get('/game/',(req,res,next)=>{
+  res.render('game');
+});
+
+router.post('/game/',(req,res,next)=>{
+  var body = "";
+  req.on('data',function(data){
+    body += data;
+  });
+  req.on('end',function(){
+    res.writeHeader(200,{
+      'Content-Type':'text/plain',
+      'Access-Control-Allow-Origin':"*"
+    });
+    console.log(body);
+    res.write(body);
+    res.end();
+  })
+});
+
+router.post('/game/answer',(req,res,next)=>{
+  req.on('data',function(data){
+    ans = data+"";
+    return res.status(201).send("an");
+  });
+});
+
 module.exports = app;
