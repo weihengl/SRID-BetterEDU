@@ -24,7 +24,7 @@
       text-align:center
     }
   </style>
-  <script src="./socket.io.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
 </head>
 <body>
 <div class="row demo-row">
@@ -141,7 +141,7 @@
   var items = ['apple','cat','car','house','sun'];
   var hasDrawn = [false,false,false,false,false];
   var answer;
-  var socket = io.connect('https://better-edu.herokuapp.com');
+  socket = io.connect('https://better-edu.herokuapp.com');
   var chosen;
   console.log(username);
   if(username == "kid"){
