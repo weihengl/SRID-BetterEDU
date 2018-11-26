@@ -10,6 +10,7 @@ var galleryRouter = require('./routes/gallery');
 var gameSelectRouter = require('./routes/gameSelect');
 var videoConferenceRouter = require('./routes/videoConference');
 var aiRouter = require('./routes/ai');
+var settingRouter = require('./routes/setting');
 var WebSocket = require('ws');
 
 var app = express();
@@ -30,6 +31,7 @@ app.use('/gallery',galleryRouter);
 app.use('/gameSelect',gameSelectRouter);
 app.use('/video',videoConferenceRouter);
 app.use('/ai',aiRouter);
+app.use('/settings', settingRouter);
 
 
 // catch 404 and forward to error handler

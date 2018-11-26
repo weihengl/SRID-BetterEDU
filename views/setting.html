@@ -1,7 +1,7 @@
 <style>
 .onoffswitch {
     position: relative; width: 90px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+      -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
 }
 .onoffswitch-checkbox {
     display: none;
@@ -36,13 +36,13 @@
     position: absolute; top: 0; bottom: 0;
     right: 56px;
     border: 2px solid #D0CBD6; border-radius: 20px;
-    transition: all 0.3s ease-in 0s; 
+    transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
+    right: 0px;
 }
 </style>
 
@@ -50,16 +50,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link href="../StyleGuide/dist/css/flat-ui.css" rel="stylesheet">
-    <link href="../StyleGuide/docs/assets/css/demo.css" rel="stylesheet">
-    <link href="../StyleGuide/docs/assets/css/chat.css", rel="stylesheet">
-    <link rel="shortcut icon" href="../Style Guide/ist/favicon.ico">
+    <!-- Loading Bootstrap -->
+    <link href="/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Loading Flat UI -->
+    <link href="/dist/css/flat-ui.css" rel="stylesheet">
+    <link href="/docs/assets/css/demo.css" rel="stylesheet">
+    <!--<link href="docs/assets/css/chat.css", rel="stylesheet">-->
+    <link rel="../static/shortcut icon" href="/dist/favicon.ico">
     <title>Notification Settings</title>
 </head>
-<body>
+<body><body style="background-image:url('/images/bg.jpg')">    <!--<p></p>-->
+    <div class="row demo-row">
+        <div class="col">
+            <nav class="navbar navbar-inverse navbar-embossed navbar-expand-lg" role="navigation">
+                <a class="navbar-brand" href="#">EDU-X</a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
+                <div class="collapse navbar-collapse" id="navbar-collapse-01">
+                    <ul class="nav navbar-nav ml-auto">
+                        <li><a href="#fakelink">User<span class="navbar-unread">1</span></a></li>
+                        <li><a href="#fakelink">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </nav><!-- /navbar -->
+        </div>
+    </div> <!-- /row -->
+
+<div class="row demo-samples">
+    <div class="col-2">
+        <div class="todo">
+            <ul>
+                <li>
+                    <div class="todo-icon fui-calendar"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/"><div style="color: white">Calendar</div></a>
+                        </h2>
+                    </div>
+                </li>
+                <li class="todo-done">
+                    <div class="todo-icon fui-user"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/video"><div style ="color: white"> Video Conference</div></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-eye"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/gameSelect"><div style="color: white">Mini Game</div></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-chat"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/ai"><div style="color: white">AI Assistant</div></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-gear"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/settings"><strong>Notification Settings</strong></a>
+                        </h2>
+                    </div>
+                </li>
+                <li>
+                    <div class="todo-icon fui-image"></div>
+                    <div class="todo-content">
+                        <p></p>
+                        <h2 class="todo-name">
+                            <a href="/gallery"><div style="color: white">Art Gallery</div></a>
+                        </h2>
+                    </div>
+                </li>
+            </ul>
+        </div><!-- /.todo -->
+    </div><!-- /.col-4 -->
 <span class="border">
 <div class="container">
     <!-- Content here -->
@@ -71,13 +151,17 @@
     <div class="container">
   <div class="row">
     <div class="col-sm" style="width: 50%">
+        <!--<label class="radio">-->
+            <!--<input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" data-toggle="radio">-->
+            <!--Radio is off-->
+          <!--</label>-->
       <input type = "radio" name = "type" checked=""> Banners (Default)<br><br>
-      <image src = "../public/assets/banners.png"/ width="200" height="100"><br>
+      <image src = "assets/banners.png" width="200" height="100"><br>
       <p>Banners appear in the upper-right corner and go away authomatically</p>
     </div>
     <div class="col-sm" style = "width: 50%">
       <input type = "radio" name = "type"> Alert<br><br>
-      <image src = "../public/assets/alert.png"/ width="200" height="100"><br>
+      <image src = "assets/alert.png" width="200" height="100"><br>
       <p>Alerts stay on screen until dismissed</p>
     </div>
 </div>
@@ -89,7 +173,7 @@
     <div class="container">
   <div class="row">
     <div class="col-sm" style="width: 50%">
-        <input type = "radio" checked=""> Select from Inventory (Default)<br> <br>
+        <input type = "radio" checked="" name = "sound"> Select from Inventory (Default)<br> <br>
         <select>
             <option value = "bibi"> Bibi (default) </option>
             <option value = "test1"> Test 1</option>
@@ -98,18 +182,26 @@
 
     </div>
     <div class="col-sm" style="width: 50%">
-        <input type = "radio"> Select from Inventory (Default)<br> <br>
-        <input type = "file">
+        <input type = "radio" name = "sound"> Upload your own piece<br> <br>
+        <div class = "col">&emsp;
+          <div class="form-group">
+              <label for="myupload" class="btn btn-block btn-lg btn-primary" style="font-size: 15px;">
+                <font color = "white">Upload File: Browse</font>
+              </label>
+            <input class="btn btn-block btn-lg btn-primary" type="file" style="display: none" id="myupload" multiple>
+          </div>
+        </div>
     </div>
     <div class="col-sm" style="width: 50%">
-      <input type = "radio"> Record Your Own Piece<br><br>
+      <input type = "radio" name = "sound"> Record Your Own Piece<br><br>
     </div>
 </div>
 
 </div>
     <hr>
     <h4>Volume</h4>
-    <div>
+
+
         <span>LOW</span>
  <input type="range" id="start" name="volume"
          min="0" max="10">
@@ -132,14 +224,13 @@
 <input type = "radio"> select your own time range: &nbsp 
 From <input type = "text" style = "width:45"> AM to <input type = "text" style = "width: 45"> PM
 
-</div>
+
 </span>
+</div>
 
 
 
-
-
-
+</body>
 
 </body>
 </html>
