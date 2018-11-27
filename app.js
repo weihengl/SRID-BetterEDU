@@ -50,9 +50,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-
-var server = require('http').Server(app).listen(3000);
-var io = require('socket.io').listen(server);
+const PORT = process.env.PORT || 3000;
+const server = express().listen(PORT,()=> console.log('Listening on '+PORT));
+var io = require('socket.io').socketIO(server);
 io.sockets.on('connection', (socket) => {
 
   socket.on('move', message => {
