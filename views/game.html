@@ -129,7 +129,7 @@
 <bgsound id="snd" loop="0" src=""/>
 </body>
 </html>
-<script src="https://better-edu.herokuapp.com/socket.io/socket.io.js"></script>
+<script src="/socket.io/socket.io.js"></script>
 <script type = "text/javascript">
 
   var bt2 = document.getElementById("bt2");
@@ -141,7 +141,7 @@
   var items = ['apple','cat','car','house','sun'];
   var hasDrawn = [false,false,false,false,false];
   var answer;
-  var socket = io.connect("https://better-edu.herokuapp.com:3000");
+  var socket = io.connect("https://better-edu.herokuapp.com");
   var chosen;
   console.log(username);
   if(username == "kid"){
