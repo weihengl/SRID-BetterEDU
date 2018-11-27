@@ -52,7 +52,7 @@ app.use(function(err, req, res, next) {
 
 const PORT = process.env.PORT || 3000;
 const server = app.listen(PORT,()=> console.log('Listening on '+PORT));
-var io = require('socket.io').socketIO(server);
+var io = require('socket.io')(server);
 io.sockets.on('connection', (socket) => {
 
   socket.on('move', message => {
