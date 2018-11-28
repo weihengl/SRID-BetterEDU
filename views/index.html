@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="utf-8">
-  <title>EDU-X-AI</title>
-  <meta name="description" content="AI page for EDU-X"/>
+  <title>EDU-X</title>
+  <meta name="description" content="main page for EDU-X"/>
 
   <meta name="viewport" content="width=1000, initial-scale=1.0, maximum-scale=1.0">
 
@@ -34,8 +34,8 @@
       <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse-01"></button>
       <div class="collapse navbar-collapse" id="navbar-collapse-01">
         <ul class="nav navbar-nav ml-auto">
-          <li><a href="#fakelink">User<span class="navbar-unread">1</span></a></li>
-          <li><a href="#fakelink">Log Out</a></li>
+          <li><a href="#">User<span class="navbar-unread">1</span></a></li>
+          <li><a href="/login">Log Out</a></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </nav><!-- /navbar -->
@@ -46,59 +46,69 @@
   <div class="col-2">
     <div class="todo">
       <ul>
-        <li>
-          <div class="todo-icon fui-calendar"></div>
-          <div class="todo-content">
-            <p></p>
-            <h2 class="todo-name">
-              <a href="/"><div style="color: white">Calendar</div></a>
-            </h2>
-          </div>
-        </li>
-        <li>
-          <div class="todo-icon fui-user"></div>
-          <div class="todo-content">
-            <p></p>
-            <h2 class="todo-name">
-              <a href="/video"><div style="color: white">Video Conference</div></a>
-            </h2>
-          </div>
-        </li>
-        <li>
-          <div class="todo-icon fui-eye"></div>
-          <div class="todo-content">
-            <p></p>
-            <h2 class="todo-name">
-              <a href="/gameSelect"><div style="color: white">Mini Game</div></a>
-            </h2>
-          </div>
-        </li>
         <li class="todo-done">
-          <div class="todo-icon fui-chat"></div>
+          <a href="/">
+            <div class="todo-icon fui-calendar"></div>
+            <div class="todo-content">
+              <p></p>
+              <h2 class="todo-name">
+                <a href="/"><strong>Calendar</strong></a>
+              </h2>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/video">
+            <div class="todo-icon fui-user" style="color: white"></div>
+            <div class="todo-content">
+              <p></p>
+              <h2 class="todo-name">
+                <a href="/video"><div style="color: white">Video Conference</div></a>
+              </h2>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/gameSelect">
+            <div class="todo-icon fui-eye" style="color:white"></div>
+            <div class="todo-content">
+              <p></p>
+              <h2 class="todo-name">
+                <a href="/gameSelect"><div style="color: white">Mini Game</div></a>
+              </h2>
+            </div>
+          </a>
+        </li>
+        <li>
+          <div class="todo-icon fui-chat" style="color:white"></div>
           <div class="todo-content">
             <p></p>
             <h2 class="todo-name">
-              <a href="/ai"><strong>AI Assistant</strong></a>
+              <a href="/ai"><div style="color: white">AI Assistant</div></a>
             </h2>
           </div>
         </li>
         <li>
-          <div class="todo-icon fui-gear"></div>
-          <div class="todo-content">
-            <p></p>
-            <h2 class="todo-name">
-              <a href="/settings"><div style="color: white">Notification Settings</div></a>
-            </h2>
-          </div>
+          <a href="/settings">
+            <div class="todo-icon fui-gear" style="color:white"></div>
+            <div class="todo-content">
+              <p></p>
+              <h2 class="todo-name">
+                <a href="/settings"><div style="color: white">Notification Settings</div></a>
+              </h2>
+            </div>
+          </a>
         </li>
         <li>
-          <div class="todo-icon fui-image"></div>
-          <div class="todo-content">
-            <p></p>
-            <h2 class="todo-name">
-              <a href="/gallery"><div style="color: white" >Art Gallery</div></a>
-            </h2>
-          </div>
+          <a href="gallery">
+            <div class="todo-icon fui-image" style="color:white"></div>
+            <div class="todo-content">
+              <p></p>
+              <h2 class="todo-name">
+                <a href="/gallery"><div style="color: white" >Art Gallery</div></a>
+              </h2>
+            </div>
+          </a>
         </li>
       </ul>
     </div><!-- /.todo -->
