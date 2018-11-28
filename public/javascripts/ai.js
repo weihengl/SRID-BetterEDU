@@ -82,9 +82,9 @@ genPhoto = function () {
 
   newEle.className = "balon2 p-2 m-0 position-relative";
   photo.className = "float-left sohbet2";
-  photo.src = "../images/SpongeBob-SquarePants.jpg";
+  photo.src = "../images/kid.jpg";
   photo.height = 250;
-  photo.width = 500;
+  photo.width = 350;
 
   p.appendChild(newEle);
   newEle.appendChild(photo);
