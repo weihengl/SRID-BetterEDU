@@ -38,6 +38,10 @@ $('#send_Btn').click(function () {
 $('#myupload').change(function (e) {
    //alert($(this).val()+" upload successfully. AI is processing.");
    aiPost($(this).val()+"   upload successfully!");
+
+    const p = document.getElementById('sohbet');
+    p.scrollTop = p.scrollHeight;
+
 });
 
 
