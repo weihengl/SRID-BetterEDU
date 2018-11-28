@@ -6,28 +6,87 @@
 
 var app = require('../app');
 var debug = require('debug')('project:server');
-var http = require('http');
+
 
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '3000');
-app.set('port', port);
+
+
 
 /**
  * Create HTTP server.
  */
 
-var server = http.createServer(app);
+//var server = http.createServer(app);
 
 /**
  * Listen on provided port, on all network interfaces.
  */
+var ans;
+const port = process.env.PORT || 3000;
+app.set('port', port);
+const server = app.listen(port,()=> console.log('Listening on '+port));
+var io = require('socket.io')(server);
+io.sockets.on('connection', (socket) => {
 
-server.listen(port);
+  socket.on('move', message => {
+    console.log(message.x);
+    console.log(message);
+    socket.broadcast.emit("move",message);
+  });
+  socket.on('down', message => {
+    console.log(message.x);
+    console.log(message);
+    socket.broadcast.emit("down",message);
+  });
+  socket.on("clean",msg=>{
+    socket.broadcast.emit("clean","");
+  });
+  socket.on("guess",guess=>{
+    if(guess != ans){
+      socket.emit("fail","");
+    }
+    else{
+      io.sockets.emit("success","");
+    }
+  });
+  socket.on("giveUp",(data)=>{
+    io.sockets.emit("giveUp","");
+  });
+})
+
+app.get('/game/',(req,res,next)=>{
+  res.render('game');
+});
+
+app.post('/game/',(req,res,next)=>{
+  var body = "";
+  req.on('data',function(data){
+    body += data;
+  });
+  req.on('end',function(){
+    res.writeHeader(200,{
+      'Content-Type':'text/plain',
+      'Access-Control-Allow-Origin':"*"
+    });
+    console.log(body);
+    res.write(body);
+    res.end();
+  })
+});
+
+app.post('/game/answer',(req,res,next)=>{
+  req.on('data',function(data){
+    ans = data+"";
+    return res.status(201).send("an");
+  });
+});
 server.on('error', onError);
 server.on('listening', onListening);
+
+
 
 /**
  * Normalize a port into a number, string, or false.
