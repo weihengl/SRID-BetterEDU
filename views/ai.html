@@ -35,7 +35,7 @@
                 <div class="collapse navbar-collapse" id="navbar-collapse-01">
                     <ul class="nav navbar-nav ml-auto">
                         <li><a href="#fakelink">User<span class="navbar-unread">1</span></a></li>
-                        <li><a href="#fakelink">Log Out</a></li>
+                        <li><a href="/login">Log Out</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </nav><!-- /navbar -->
@@ -47,31 +47,37 @@
         <div class="todo">
             <ul>
                 <li>
-                    <div class="todo-icon fui-calendar"></div>
+                    <a href="/">
+                    <div class="todo-icon fui-calendar" style="color:white"></div>
                     <div class="todo-content">
                         <p></p>
                         <h2 class="todo-name">
                             <a href="/"><div style="color: white">Calendar</div></a>
                         </h2>
                     </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="todo-icon fui-user"></div>
+                    <a href="/video">
+                    <div class="todo-icon fui-user" style="color: white"></div>
                     <div class="todo-content">
                         <p></p>
                         <h2 class="todo-name">
                             <a href="/video"><div style="color: white">Video Conference</div></a>
                         </h2>
                     </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="todo-icon fui-eye"></div>
+                    <a href="/gameSelect">
+                    <div class="todo-icon fui-eye" style="color:white"></div>
                     <div class="todo-content">
                         <p></p>
                         <h2 class="todo-name">
                             <a href="/gameSelect"><div style="color: white">Mini Game</div></a>
                         </h2>
                     </div>
+                    </a>
                 </li>
                 <li class="todo-done">
                     <div class="todo-icon fui-chat"></div>
@@ -83,32 +89,36 @@
                     </div>
                 </li>
                 <li>
-                    <div class="todo-icon fui-gear"></div>
+                    <a href="/settings">
+                    <div class="todo-icon fui-gear" style="color:white"></div>
                     <div class="todo-content">
                         <p></p>
                         <h2 class="todo-name">
                             <a href="/settings"><div style="color: white">Notification Settings</div></a>
                         </h2>
                     </div>
+                    </a>
                 </li>
                 <li>
-                    <div class="todo-icon fui-image"></div>
+                    <a href="gallery">
+                    <div class="todo-icon fui-image" style="color:white"></div>
                     <div class="todo-content">
                         <p></p>
                         <h2 class="todo-name">
                             <a href="/gallery"><div style="color: white" >Art Gallery</div></a>
                         </h2>
                     </div>
+                    </a>
                 </li>
             </ul>
         </div><!-- /.todo -->
     </div>
 
 
-    <div class="jumbotron m-0 p-0 bg-transparent col-10">
-        <div class="row m-0 p-0 position-relative">
+    <div class="jumbotron m-0 p-0 bg-transparent col-9" >
+        <div class="m-0 p-0 position-relative">
             <div class="col-12 p-0 m-0 position-absolute" style="right: 0px;">
-                <div class="card border-0 rounded" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10), 0 6px 10px 0 rgba(0, 0, 0, 0.01); overflow: hidden; height: 100vh;">
+                <div class="card border-0 rounded" style="box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.10), 0 6px 10px 0 rgba(0, 0, 0, 0.01); overflow: hidden; height: 85vh;">
 
                     <div class="card-header p-1 bg-light border border-top-0 border-left-0 border-right-0" style="color: rgba(96, 125, 139,1.0);">
 
@@ -124,17 +134,21 @@
                     <div class="card bg-sohbet border-0 m-0 p-0" style="height: 100vh;">
                         <div id="sohbet" class="card border-0 m-0 p-0 position-relative bg-transparent" style="overflow-y: auto; height: 100vh;">
 
-
-
                             <div class="balon2 p-2 m-0 position-relative" >
 
-                                <a class="float-left sohbet2"> Hey, I am AI teaching assistant! Nice to meet you! </a>
+                                <a class="float-left sohbet2">
+
+                                    Hey, I am teaching assistant! Nice to meet you!<br/><br/>
+                                    <strong>You can ask me following questions:</strong><br/>
+                                    1. my kid's current photo<br/>
+                                    2. my kid's last week work<br/>
+                                    3. who are you<br/>
+                                    5. how are you<br/>
+                                    4. You can also say hi to me :)
+
+                                </a>
 
                             </div>
-
-
-
-
 
                         </div>
                     </div>
