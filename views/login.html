@@ -3,23 +3,59 @@
   <title></title>
   <meta charset="utf-8">
 
+  <link href="/dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Loading Flat UI -->
+  <link href="/dist/css/flat-ui.css" rel="stylesheet">
+  <link href="/docs/assets/css/chat.css" rel="stylesheet">
+  <link href="/docs/assets/css/demo.css" rel="stylesheet">
+
   <style type="text/css">
     fieldset{width: 450px;height: 200px;margin: 250px 500px 0px}
 
 
 
   </style>
+
+
 </head>
 <body style="background-image:url('/images/bg.jpg')">
 
-  <fieldset>
+  <!--fieldset>
     <legend align="center">Log In</legend></br>
     <label>Username:</label>
     <input type="text" id="username">  'kid' or 'parent'</br></br>
     <label>Password: </label>
     <input type="Password" id="pwd1">
     <button name="" onclick="login()" style = "width:100px;align:center;background-color:#54C8FF;height:40px; border:none;border-radius: 4px;margin-left:5px">Log in</button>
-  </fieldset>
+  </fieldset-->
+<div class="container" style="margin-top: 50px">
+  <div class="row demo-row col-12">
+  <div class="login">
+    <div class="login-screen">
+      <div class="login-icon">
+        <img src="docs/assets/images/login/icon.png" alt="Welcome to Mail App" />
+        <h4>Welcome to <small>EDU-X</small></h4>
+      </div>
+
+      <div class="login-form">
+        <div class="form-group">
+          <input type="text" class="form-control login-field" value="" placeholder="Enter your name" id="username" />
+          <label class="login-field-icon fui-user" for="username"></label>
+        </div>
+
+        <div class="form-group">
+          <input type="password" class="form-control login-field" value="" placeholder="Password" id="pwd1" />
+          <label class="login-field-icon fui-lock" for="pwd1"></label>
+        </div>
+
+        <button class="btn btn-primary btn-lg btn-block" onclick="login()">Log in</button>
+        <a class="login-link" href="#">Lost your password?</a>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
 
 </body>
 
